@@ -120,7 +120,7 @@ extension SearchViewController: UISearchBarDelegate {
             DispatchQueue.main.async {
                 self.movies = movies
                 self.resultCollectionView.reloadData()
-                let timestamp = UInt(Date().timeIntervalSince1970)
+                let timestamp = Date().timeIntervalSince1970.rounded()
                 let term = searchTerm
                 self.db.childByAutoId().setValue(["term": term, "timestamp": timestamp])
             }

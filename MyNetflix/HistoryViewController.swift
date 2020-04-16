@@ -10,12 +10,12 @@ import UIKit
 import Firebase
 
 class HistoryViewController: UIViewController {
- 
+    
     @IBOutlet weak var tableView: UITableView!
-    var searchTerms: [String] = []
+    var searchTerms: [SearchTerm] = []
     
     let db = Database.database().reference().child("searchHistory")
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -23,22 +23,16 @@ class HistoryViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-       db.observeSingleEvent(of: .value) { snapshot in
-            guard let searchHistory = snapshot.value as? [String: String] else { return  }
-            let searchTerms = searchHistory.map { (key, value) -> String in
-                return value
-            }
-        
-        self.searchTerms = searchTerms.reversed()
-        self.tableView.reloadData()
-            print("---> print \(searchTerms), \(snapshot.value)")
+        db.observeSingleEvent(of: .value) { snapshot in
+            guard let searchHistory = snapshot.value as? [String: Any] else { return }
+            let data = try! JSONSerialization.data(withJSONObject: Array(searchHistory.values), options: [])
+            let decoder = JSONDecoder()
+            let searchTerms = try! decoder.decode([SearchTerm].self, from: data)
+            self.searchTerms = searchTerms.sorted { $0.timestamp > $1.timestamp }
+            self.tableView.reloadData()
+            print("--- \(searchTerms)")
         }
     }
-    
-    
-    
-
-
 }
 
 
@@ -47,7 +41,7 @@ extension HistoryViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath) as? HistoryCell else {
             return UITableViewCell()
         }
-        cell.searchTerm.text = searchTerms[indexPath.row]
+        cell.searchTerm.text = searchTerms[indexPath.row].term
         return cell
     }
     
@@ -58,4 +52,9 @@ extension HistoryViewController: UITableViewDataSource {
 
 class HistoryCell: UITableViewCell {
     @IBOutlet weak var searchTerm: UILabel!
+}
+
+struct SearchTerm: Codable {
+    let term: String
+    let timestamp: TimeInterval
 }

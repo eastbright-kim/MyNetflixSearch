@@ -9,16 +9,31 @@
 import UIKit
 import Kingfisher
 import AVFoundation
+import Firebase
 
 class SearchViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var resultCollectionView: UICollectionView!
     
+    let db = Database.database().reference().child("searchHistory")
+    
     var movies: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        db.observeSingleEvent(of: .value) { snapshot in
+            guard let searchHistory = snapshot.value as? [String: String] else { return  }
+            let searchTerms = searchHistory.map { (key, value) -> String in
+                return value
+            }
+            print("---> print \(searchTerms), \(snapshot.value)")
+        }
+        
     }
 }
 
@@ -106,6 +121,7 @@ extension SearchViewController: UISearchBarDelegate {
             DispatchQueue.main.async {
                 self.movies = movies
                 self.resultCollectionView.reloadData()
+                self.db.childByAutoId().setValue(searchTerm)
             }
         }
         

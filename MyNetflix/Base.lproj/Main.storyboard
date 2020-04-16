@@ -344,18 +344,62 @@
         <!--저장한 콘텐츠 목록-->
         <scene sceneID="G3y-va-xMY">
             <objects>
-                <viewController id="0DL-kq-S35" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HistoryViewController" id="0DL-kq-S35" customClass="HistoryViewController" customModule="MyNetflix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P9C-bK-D6z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N3G-fI-vgX">
+                                <rect key="frame" x="0.0" y="54" width="414" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="86" id="H12-PF-agq" customClass="HistoryCell" customModule="MyNetflix" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="86"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H12-PF-agq" id="x4p-88-ivy">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJy-6J-OIi">
+                                                    <rect key="frame" x="16" y="32.5" width="55" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WJy-6J-OIi" firstAttribute="leading" secondItem="x4p-88-ivy" secondAttribute="leading" constant="16" id="Tnv-BJ-Xb4"/>
+                                                <constraint firstItem="WJy-6J-OIi" firstAttribute="centerY" secondItem="x4p-88-ivy" secondAttribute="centerY" id="wkZ-Fl-gID"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="searchTerm" destination="WJy-6J-OIi" id="JDl-ih-85x"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="0DL-kq-S35" id="aYp-qD-6tq"/>
+                                    <outlet property="delegate" destination="0DL-kq-S35" id="nqJ-x8-QXr"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="OYX-Ro-fRu" firstAttribute="trailing" secondItem="N3G-fI-vgX" secondAttribute="trailing" id="ihc-RV-yed"/>
+                            <constraint firstItem="N3G-fI-vgX" firstAttribute="top" secondItem="OYX-Ro-fRu" secondAttribute="top" constant="10" id="rCd-c8-e9J"/>
+                            <constraint firstItem="OYX-Ro-fRu" firstAttribute="bottom" secondItem="N3G-fI-vgX" secondAttribute="bottom" id="twO-5a-PTV"/>
+                            <constraint firstItem="N3G-fI-vgX" firstAttribute="leading" secondItem="OYX-Ro-fRu" secondAttribute="leading" id="xvG-hi-xjT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="OYX-Ro-fRu"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="저장한 콘텐츠 목록" image="square.and.arrow.down.fill" catalog="system" id="o4B-qf-7ZJ"/>
+                    <connections>
+                        <outlet property="tableView" destination="N3G-fI-vgX" id="XZU-fO-hBV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="igm-fa-Xmf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4877" y="990"/>
+            <point key="canvasLocation" x="4876.811594202899" y="989.73214285714278"/>
         </scene>
         <!--Recommend List View Controller-->
         <scene sceneID="4xS-pn-Mnp">
@@ -639,6 +683,7 @@
                             <constraint firstAttribute="bottom" secondItem="ZiT-UV-mUJ" secondAttribute="bottom" constant="6" id="PPV-gr-rrv"/>
                             <constraint firstItem="ZiT-UV-mUJ" firstAttribute="leading" secondItem="B0Y-LK-CeD" secondAttribute="leading" id="ppS-m3-G7s"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="gVE-FW-Y1I"/>
                     </view>
                     <connections>
                         <outlet property="sectionTitle" destination="A4g-pm-KpJ" id="I63-cu-ma9"/>
@@ -711,6 +756,7 @@
                             <constraint firstAttribute="bottom" secondItem="qSV-QG-nSj" secondAttribute="bottom" constant="8" id="h1X-hA-aaN"/>
                             <constraint firstItem="7ip-kq-SXi" firstAttribute="leading" secondItem="yYw-2u-j79" secondAttribute="leading" constant="8" id="hbi-Ap-HWE"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="1Ww-QS-n6V"/>
                     </view>
                     <connections>
                         <outlet property="sectionTitle" destination="7ip-kq-SXi" id="rAe-Nh-nye"/>

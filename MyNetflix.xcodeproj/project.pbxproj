@@ -20,6 +20,7 @@
 		943AE88D243727A400166950 /* Kingfisher in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 943AE88B243727A400166950 /* Kingfisher */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		945AD2C0244867C800357A15 /* UpComingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945AD2BF244867C800357A15 /* UpComingViewController.swift */; };
 		94C5A7C5244876D300DD4DA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94C5A7C4244876D300DD4DA8 /* GoogleService-Info.plist */; };
+		94C5A7C72448796100DD4DA8 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C5A7C62448796100DD4DA8 /* HistoryViewController.swift */; };
 		94DFD7532435CED7009687ED /* RecommendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DFD7522435CED7009687ED /* RecommendListViewController.swift */; };
 		94DFD7552435DA88009687ED /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DFD7542435DA88009687ED /* SearchViewController.swift */; };
 		94DFD7812436F11B009687ED /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DFD7802436F11B009687ED /* PlayerView.swift */; };
@@ -56,6 +57,7 @@
 		94098366243469D700FD1040 /* Player.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Player.storyboard; sourceTree = "<group>"; };
 		945AD2BF244867C800357A15 /* UpComingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingViewController.swift; sourceTree = "<group>"; };
 		94C5A7C4244876D300DD4DA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		94C5A7C62448796100DD4DA8 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		94DFD7522435CED7009687ED /* RecommendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendListViewController.swift; sourceTree = "<group>"; };
 		94DFD7542435DA88009687ED /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		94DFD7802436F11B009687ED /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				940983622434692900FD1040 /* HomeViewController.swift */,
 				94DFD7542435DA88009687ED /* SearchViewController.swift */,
 				945AD2BF244867C800357A15 /* UpComingViewController.swift */,
+				94C5A7C62448796100DD4DA8 /* HistoryViewController.swift */,
 				94DFD7522435CED7009687ED /* RecommendListViewController.swift */,
 				94098354243468AA00FD1040 /* Main.storyboard */,
 				94098366243469D700FD1040 /* Player.storyboard */,
@@ -259,6 +262,7 @@
 				94098353243468AA00FD1040 /* AppTabbarController.swift in Sources */,
 				94DFD7552435DA88009687ED /* SearchViewController.swift in Sources */,
 				94DFD7812436F11B009687ED /* PlayerView.swift in Sources */,
+				94C5A7C72448796100DD4DA8 /* HistoryViewController.swift in Sources */,
 				9409834F243468AA00FD1040 /* AppDelegate.swift in Sources */,
 				945AD2C0244867C800357A15 /* UpComingViewController.swift in Sources */,
 				94098351243468AA00FD1040 /* SceneDelegate.swift in Sources */,

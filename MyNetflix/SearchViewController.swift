@@ -26,14 +26,13 @@ class SearchViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        db.observeSingleEvent(of: .value) { snapshot in
-            guard let searchHistory = snapshot.value as? [String: String] else { return  }
-            let searchTerms = searchHistory.map { (key, value) -> String in
-                return value
-            }
-            print("---> print \(searchTerms), \(snapshot.value)")
-        }
-        
+//        db.observeSingleEvent(of: .value) { snapshot in
+//            guard let searchHistory = snapshot.value as? [String: String] else { return  }
+//            let searchTerms = searchHistory.map { (key, value) -> String in
+//                return value
+//            }
+//            print("---> print \(searchTerms), \(snapshot.value)")
+//        }
     }
 }
 
